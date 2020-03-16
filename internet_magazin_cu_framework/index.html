@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name= "viewport "
+          content= "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>Internet Magazin</title>
+</head>
+<body>
+<div class="container pt-5" id="app">
+    <div class="row mb-3">
+        <div class="col">
+            <h1>Barbie dolls</h1>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="search">Find your barbie</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="search"
+                            placeholder="Name, model ..."
+                            v-model="search"
+                    >
+                </div>
+                <hr>
+                <ul class="list-group ">
+                    <li
+                            v-for="(barb, index) of filteredBarbie"
+                            class="list-group-item list-group-item-action pointer"
+                            @click="selectBarb(index)"
+                            :class="{'active':selectedBarbIndex === index}"
+                    >
+                       {{ barb.name }} - {{ barb.model }}
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col-md-8 pt-3">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2>{{ barb.name }}</h2>
+                        <img
+                                :src="barb.image"
+                                :alt="barb.name"
+                                class="rounded detailed-barb-image"
+                        >
+                    </div>
+                    <div class="col-md-7 pt-2">
+                        <h5>Barbie details</h5>
+                        <ul>
+                            <li>Name - <strong>{{ barb.name }}</strong></li>
+                            <li>Manufacturer - <strong>{{ barb.manufacturer }}</strong></li>
+                            <li>Vendor code - <strong>{{ barb.vendor_code }}</strong></li>
+                            <li>Price - <strong>{{ barb.price }}</strong> lei</li>
+                            <li>Sale - <strong>{{ barb.sale }}</strong> %</li>
+                        </ul>
+                        <div class="phone-block">
+                            <transition name="phone">
+                        <p v-if="phoneVisibility">{{ barb.phone }}</p>
+                            </transition>
+                        </div>
+                        <button
+                                class="btn btn-outline-success mr-3"
+                                @click="phoneVisibility = !phoneVisibility"
+                        >{{ phoneBtnText }}</button>
+                        <button class="btn btn-primary" @click="modalVisibility = true">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="row pt-3" v-if="logs.length !==0">
+        <div class="col-md-12">
+            <ul class="list-group">
+                <li
+                        v-for="log in logs"
+                        class="list-group-item list-group-item-secondary"
+                        :class="{
+                            'list-group-item-secondary':log.type === 'cnl',
+                            'list-group-item-success':log.type === 'ok',
+                        }"
+                >
+                    {{log.text}} {{ log.date | date }} {{log.sum}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <transition name="modal">
+    <div class="modal fade show" v-if="modalVisibility" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Do you want to by this barbie?</h5>
+                    <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                            @click="modalVisibility = false"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Current barbie - <strong> {{ barb.name }}</strong></p>
+                    <ul>
+                        <li>Name - <strong>{{ barb.name }}</strong></li>
+                        <li>Manufacturer - <strong>{{ barb.manufacturer }}</strong></li>
+                        <li>Vendor code - <strong>{{ barb.vendor_code }}</strong></li>
+                        <li>Price - <strong>{{ barb.price }}</strong> lei</li>
+                        <li>Sale - <strong>{{ barb.sale }}</strong> %</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                            @click="cancelOrder"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                            type="button"
+                            class="btn btn-primary"
+                            @click="newOrder"
+                    >
+                        Buy
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </transition>
+    <transition name="fade">
+    <div class="modal-backdrop fade show" v-if="modalVisibility"></div>
+    </transition>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="app.js"></script>
+</body>
+</html>
