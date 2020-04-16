@@ -1,0 +1,230 @@
+/*
+font-family: 'Ubuntu', sans-serif;
+
+ */
+body{
+    font-family: 'Ubuntu', sans-serif ;
+}
+
+
+.block-example{
+    background-color: RED;
+    padding: 15px;
+
+}
+
+/* * * * * * * * * * * * * * * *
+
+NAV
+
+ * * * * * * * * * * * * * * * */
+.nav-wrapper{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.logo{
+    font-size: 22px;
+    color: #0056b3;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.navigation{
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 5px;
+}
+.navigation_link{
+    color: #000000;
+    text-decoration: none;
+    margin-right: 30px;
+}
+.navigation_link:hover, .navigation_link:active, .navigation_link:focus{
+    color: #0056b3;
+    text-decoration: none;
+
+}
+.cart{
+    padding-top: 5px;
+    position: relative;
+}
+.cart_number{
+    width: 19px;
+    height: 19px;
+    background-color: #f72464;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 1px;
+    position: absolute;
+    left: 12px;
+    top: 0;
+}
+
+/* * * * * * * * * * * * * * * *
+
+HEADER
+
+ * * * * * * * * * * * * * * * */
+
+.header{
+    height: 600px;
+    background-image: url("../img/Masinute-electrice-pentru-copii.jpg");
+    background-repeat: no-repeat;
+    background-size: 1100px;
+    background-position: top center;
+}
+
+/* * * * * * * * * * * * * * * *
+
+CONTENT
+
+ * * * * * * * * * * * * * * * */
+
+.section{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.title{
+    font-size: 30px;
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: 500;
+}
+.description{
+    font-size: 15px;
+    color: rgb(137, 137,137);
+    line-height: 1.667;
+    text-align: center;
+
+}
+
+/* * * * * * * * * * * * * * * *
+
+CONTENT
+
+ * * * * * * * * * * * * * * * */
+
+.card{
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+
+}
+.card_image{
+    margin-bottom: 35px;
+    position: relative;
+    overflow: hidden;
+
+}
+.card_image img{
+    max-width: 100%;
+}
+.card_title{
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.card_price{
+    font-size: 13px;
+    color: #f72464;
+    font-weight: 600;
+}
+.card_price span{
+    color: #495057;
+    text-decoration: line-through;
+    margin-right: 5px;
+}
+.card_hover{
+    transition: all 0.2s ease-in;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_hover:hover{
+    opacity: 1;
+}
+.card_button{
+    background-color: #f72464;
+    font-size: 14px;
+    color: white;
+    padding-top: 14px;
+    width: 120px;
+    line-height: 1;
+    height: 40px;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0px 5px 30px 0px rgba(31, 35, 37, 0.25);
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+    margin-bottom: 12px;
+}
+.card_button {
+    background-color: #f72464;
+    text-decoration: none;
+    box-shadow: 0px 5px 30px 0px rgba(31, 35, 37, 0.3);
+    color: white;
+}
+
+/* * * * * * * * * * * * * * * *
+
+FOOTER
+
+ * * * * * * * * * * * * * * * */
+
+.footer{
+    background-color: black;
+    padding: 20px 0 25px;
+    text-align: center;
+}
+.footer-nav{
+    margin-bottom: 20px;
+}
+.footer-nav_link{
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-right: 35px;
+}
+.footer-nav_link:last-child{
+    margin-right: 0px;
+}
+.footer-nav_link:hover{
+    background-color: #f72464;
+}
+.footer_social{
+    margin-bottom: 20px;
+    color: white;
+    font-size: 22px;
+}
+.footer_social a{
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+}
+.footer_social a:last-child{
+    margin-right: 0px;
+}
+.footer_social a:hover{
+    color: #f72464;
+    text-decoration: none;
+}
+.footer_copyright{
+    color: rgb(137, 137,137);
+    font-size: 12px;
+}
